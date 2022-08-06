@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import subprocess
-
+import os
 URL = "https://developer.android.com/studio#downloads"
 DL_URL="https://redirector.gvt1.com/edgedl/android/studio/install/{version}/{file}"
 
@@ -34,7 +34,7 @@ def build_package(version,location):
     link=DL_URL.format(version=version[0],file=version[1])
     print(link)
     bashCommand = "sh ./recipes/android-studio/build.sh "+link  + " " + version[0] + " "+location+" >/tmp/deblog"
-    print(bashCommand)
-    process = subprocess.Popen(bashCommand, stdout=subprocess.PIPE,shell=True)
-
+   
+    #process = subprocess.Popen(bashCommand, stdout=subprocess.PIPE,shell=True)
+    os.system(bashCommand)
     print("Ran Bash Script")

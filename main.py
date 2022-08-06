@@ -2,7 +2,8 @@ from distutils.command.build import build
 from ensurepip import version
 import importlib
 import os
-OUTDIR=os.path.join(os.path.dirname(os.path.abspath(__file__)),'dist')
+SUBDIR="dist/"
+OUTDIR=os.path.join(os.path.dirname(os.path.abspath(__file__)),SUBDIR)
 import json
 with open('data/versions.json', 'r') as f:
   versions = json.load(f)
@@ -10,15 +11,21 @@ with open('data/versions.json', 'r') as f:
 
 
 for filename in os.listdir("recipes/"):
-    if filename. endswith(".py"):
+    if filename.endswith(".py"):
         mod=importlib.import_module("recipes." + filename[:-3])
         print("Loaded recipe: " + filename[:-3])
-        current_version = versions[filename[:-3]]
+        if filename[:-3] in versions:
+            current_version = versions[filename[:-3]]
+        else:
+            current_version = ""
         version=mod.check_version(current_version)
         if version:
             print("New version found, building package")
             versions[filename[:-3]]=version[0]
-            mod.build_package(version,OUTDIR)
+            PACKAGE_PATH=os.path.join(OUTDIR,filename[:-3])
+            if not os.path.exists(PACKAGE_PATH):
+                os.makedirs(PACKAGE_PATH)
+            mod.build_package(version,PACKAGE_PATH+"/")
         else:
             print("No new version found")
         
