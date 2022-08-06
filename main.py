@@ -1,5 +1,4 @@
 from distutils.command.build import build
-from ensurepip import version
 import importlib
 import os
 SUBDIR="dist/"
