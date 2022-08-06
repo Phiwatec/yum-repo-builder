@@ -4,7 +4,7 @@ import os
 OUTDIR="dist"
 FINISH_SCRIPT="finish.sh"
 FINISH_DIR="."
-
+MODIFIED=False
 import json
 with open('data/versions.json', 'r') as f:
   versions = json.load(f)
@@ -21,6 +21,7 @@ for filename in os.listdir("recipes/"):
             current_version = ""
         version=mod.check_version(current_version)
         if version:
+            MODIFIED=True
             print("New version found, building package")
             versions[filename[:-3]]=version[0]
             PACKAGE_PATH=os.path.join(OUTDIR,filename[:-3])
@@ -33,8 +34,9 @@ for filename in os.listdir("recipes/"):
 with open('data/versions.json', 'w') as f:
     json.dump(versions, f)
 print("All packages built")
-print("Making repo")
-os.system("cd "+FINISH_DIR+"&& bash "+FINISH_SCRIPT)
+if MODIFIED:
+    print("Making repo")
+    os.system("cd "+FINISH_DIR+"&& bash "+FINISH_SCRIPT)
 
 print("Done")
 
