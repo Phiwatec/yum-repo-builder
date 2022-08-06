@@ -34,7 +34,7 @@ with open('data/versions.json', 'w') as f:
     json.dump(versions, f)
 print("All packages built")
 print("Making repo")
-os.system("cd "+FINISH_DIR+"bash "+FINISH_SCRIPT)
+os.system("cd "+FINISH_DIR+"&& bash "+FINISH_SCRIPT)
 
 print("Done")
 
