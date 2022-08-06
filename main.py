@@ -1,8 +1,10 @@
 from distutils.command.build import build
 import importlib
 import os
-SUBDIR="dist/"
-OUTDIR=os.path.join(os.path.dirname(os.path.abspath(__file__)),SUBDIR)
+OUTDIR="dist"
+FINISH_SCRIPT="finish.sh"
+FINISH_DIR="."
+
 import json
 with open('data/versions.json', 'r') as f:
   versions = json.load(f)
@@ -32,7 +34,7 @@ with open('data/versions.json', 'w') as f:
     json.dump(versions, f)
 print("All packages built")
 print("Making repo")
-os.system("bash finish.sh")
+os.system("cd "+FINISH_DIR+"bash "+FINISH_SCRIPT)
 
 print("Done")
 
