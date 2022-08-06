@@ -17,5 +17,4 @@ dpkg-deb -b /tmp/debbuild /tmp/android-studio.deb
 echo "Copying.."
 mv /tmp/android-studio.deb $3
 rm -r /tmp/debbuild
-rm /tmp/android-studio.deb
 echo "Done :)"
