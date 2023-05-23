@@ -26,5 +26,5 @@ def check_version(current_version):
         return (None, None)
 
 
-def build_package(version, location):
-    urllib.request.urlretrieve(version[1], location+"/"+version[2])
+def build_package(version, location, data):
+    urllib.request.urlretrieve(data[0], location+"/"+data[1])
