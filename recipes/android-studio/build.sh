@@ -6,7 +6,7 @@ mkdir /tmp/debbuild
 echo "unpacking deb"
 dpkg-deb -R /tmp/android-studio.deb /tmp/debbuild
 echo "Making changes"
-echo "ln -s /opt/android-studio/bin/studio.sh /usr/bin/android-studio" > /tmp/debbuild/DEBIAN/preinst
+echo "ln -sf /opt/android-studio/bin/studio.sh /usr/bin/android-studio" > /tmp/debbuild/DEBIAN/preinst
 echo "Maintainer: Phiwatec" > /tmp/debbuild/DEBIAN/control
 echo "Package: android-studio" >> /tmp/debbuild/DEBIAN/control
 echo "Version: ${2}" >> /tmp/debbuild/DEBIAN/control

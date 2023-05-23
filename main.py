@@ -1,9 +1,9 @@
 from distutils.command.build import build
 import importlib
 import os
-OUTDIR="dist"
+OUTDIR="../apt/pool/main/"
 FINISH_SCRIPT="finish.sh"
-FINISH_DIR="."
+FINISH_DIR="../apt/"
 
 import json
 with open('data/versions.json', 'r') as f:

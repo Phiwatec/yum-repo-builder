@@ -1,12 +1,18 @@
 import requests
-
 import urllib.request
+
 URL = "https://api.github.com/repos/smallstep/cli/releases/latest"
 
+from dotenv import load_dotenv
+load_dotenv()
+import os
 
+username=os.environ.get('GH_USER')
+token=os.environ.get('GH_TOKEN')
+auth=(username,token)
 
 def check_version(current_version):
-    resp=requests.get(URL)
+    resp=requests.get(URL,auth=auth)
     data=resp.json()
     new_version=data['tag_name'][1:]
     print("Current version: " + current_version)
