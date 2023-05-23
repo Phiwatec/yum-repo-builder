@@ -16,7 +16,7 @@ def check_version(current_version):
     new_version = data['tag_name']
     print("Current version: " + current_version)
     print("Latest version: " + new_version)
-    data = []
+    returndata = []
     if new_version == current_version:
         return (None, None)
     else:
@@ -24,15 +24,15 @@ def check_version(current_version):
             for asset in data['assets']:
                 if asset['name'] == f'ping_exporter_{new_version}_linux_{arch}.deb':
                     print(f'ping_exporter_{new_version}_linux_{arch}.deb')
-                    data.append(
+                    returndata.append(
                         (asset['browser_download_url'], asset['name'], arch))
 
-        if len(data) == 0:
+        if len(returndata) == 0:
             print("Error! New version but no matching assets found")
             return (None, None)
 
         else:
-            return (new_version, data)
+            return (new_version, returndata)
 
 
 def build_package(version, location, data):
