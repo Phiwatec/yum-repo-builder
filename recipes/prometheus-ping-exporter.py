@@ -37,13 +37,10 @@ def check_version(current_version):
 
 def build_package(version, location, data):
 
-    link = data[0]
     # print(link)
-#    print(f'Location {location}')
+    #    print(f'Location {location}')
     for arch in data:
-        bashCommand = f"sh ./recipes/prometheus-ping-exporter/build_{arch[2]}.sh "+link + " " + \
-            version + " "+location + \
-            f'prometheus-ping-exporter_{version}_linux_amd64.deb' + \
-            " >/tmp/deblog"
+        link = arch[0]
+        bashCommand = f"sh ./recipes/prometheus-ping-exporter/build.sh {link} {version} {location}prometheus-ping-exporter_{version}_linux_amd64.deb {arch[2]} >/tmp/deblog"
         os.system(bashCommand)
         print("Ran Bash Script")

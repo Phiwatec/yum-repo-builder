@@ -11,7 +11,7 @@ echo "Making changes"
 echo "Maintainer: Phiwatec" > /tmp/debbuild/DEBIAN/control
 echo "Package: prometheus-ping-exporter" >> /tmp/debbuild/DEBIAN/control
 echo "Version: ${2}" >> /tmp/debbuild/DEBIAN/control
-echo "Architecture: amd64" >> /tmp/debbuild/DEBIAN/control
+echo "Architecture: ${4}" >> /tmp/debbuild/DEBIAN/control
 echo "Description: Prometheus Ping Exporter" >> /tmp/debbuild/DEBIAN/control 
 echo "Packing deb"
 dpkg-deb -b /tmp/debbuild /tmp/working.deb
