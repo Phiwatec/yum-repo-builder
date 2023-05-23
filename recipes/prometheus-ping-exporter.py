@@ -23,7 +23,7 @@ def check_version(current_version):
         for arch in ARCH:
             for asset in data['assets']:
                 if asset['name'] == f'ping_exporter_{new_version}_linux_{arch}.deb':
-                    print(f'ping_exporter_{new_version}_linux_{arch}.deb')
+
                     returndata.append(
                         (asset['browser_download_url'], asset['name'], arch))
 
