@@ -41,6 +41,6 @@ def build_package(version, location, data):
     #    print(f'Location {location}')
     for arch in data:
         link = arch[0]
-        bashCommand = f"sh ./recipes/prometheus-ping-exporter/build.sh {link} {version} {location}prometheus-ping-exporter_{version}_linux_amd64.deb {arch[2]} >/tmp/deblog"
+        bashCommand = f"sh ./recipes/prometheus-ping-exporter/build.sh {link} {version} {location}prometheus-ping-exporter_{version}_linux_{arch[2]}.deb {arch[2]} >/tmp/deblog"
         os.system(bashCommand)
         print("Ran Bash Script")
