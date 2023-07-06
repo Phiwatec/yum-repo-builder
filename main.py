@@ -1,9 +1,9 @@
 import json
 import importlib
 import os
-OUTDIR = "../apt/pool/main/"
-FINISH_SCRIPT = "finish.sh"
-FINISH_DIR = "../apt/"
+OUTDIR = "/var/www/repo/debian/pool/main/"
+FINISH_SCRIPT = "/opt/repo/finish.sh"
+FINISH_DIR = "/var/www/repo/debian/"
 MODIFIED = False
 with open('data/versions.json', 'r') as f:
     versions = json.load(f)
