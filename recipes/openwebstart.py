@@ -22,7 +22,7 @@ def check_version(current_version):
     else:
         for asset in data['assets']:
             if asset['name'] == f'OpenWebStart_linux_{new_version.replace(".", "_")}.deb':
-                return (new_version, (asset['browser_download_url'], f"openwebstart_{new_version}_amd64.deb"))
+                return (new_version, (asset['browser_download_url'], f"openwebstart_{new_version}_all.deb"))
         return (None, None)
 
 
