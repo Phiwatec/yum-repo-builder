@@ -21,7 +21,7 @@ def check_version(current_version):
         
     version=link.split('/')[-1].split('_')[1]
 
-    return (version != current_version,link)
+    return (version if version != current_version else None,link)
 
     
 
