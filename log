@@ -1,15 +1,20 @@
+dpkg-scanpackages: info: Wrote 29 entries to output Packages file.
+dpkg-scanpackages: info: Wrote 5 entries to output Packages file.
+gpg: using "5AB2F75F8EC95C5D86AB9C72B9320442A9E75EBB" as default secret key for signing
+Loaded recipe: powerfolder
+No new version found
 Loaded recipe: openwebstart
 Current version: 1.8.0
 Latest version: 1.8.0
 No new version found
 Loaded recipe: prometheus-ping-exporter
-Current version: 1.0.1
-Latest version: 1.0.1
+Current version: 1.1.0
+Latest version: 1.1.0
 No new version found
 Loaded recipe: bitwarden
-Current version: desktop-v2023.5.1
-Latest version: desktop-v2023.5.1
-No new version found
+Current version: desktop-v2023.7.0
+Latest version: desktop-v2023.7.1
+New version found, building package
 Loaded recipe: step-cli
 Current version: 0.24.4
 Latest version: 0.24.4
@@ -20,4 +25,6 @@ Loaded recipe: step-ca
 Current version: 0.24.2
 Latest version: 0.24.2
 No new version found
-No Updates processed
+All packages built
+Making repo
+Done
