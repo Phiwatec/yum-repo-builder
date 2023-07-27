@@ -1,9 +1,9 @@
 import json
 import importlib
 import os
-OUTDIR = "/var/www/repo/debian/pool/main/"
-FINISH_SCRIPT = "/opt/repo/finish.sh"
-FINISH_DIR = "/var/www/repo/debian/"
+OUTDIR = "/var/www/repo/rhel/stable/prod/Packages/"
+FINISH_SCRIPT = "/opt/repo/yum.sh"
+FINISH_DIR = "/var/www/repo/rhel/"
 MODIFIED = False
 with open('data/versions.json', 'r') as f:
     versions = json.load(f)

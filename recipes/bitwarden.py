@@ -29,7 +29,7 @@ def check_version(current_version):
         asset_data = resp.json()
 
         for asset in asset_data:
-            if '.deb' in asset['name']:
+            if '.rpm' in asset['name']:
                 return (new_version, (asset['browser_download_url'], asset['name']))
         return (None, None)
 

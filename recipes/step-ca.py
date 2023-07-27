@@ -23,7 +23,7 @@ def check_version(current_version):
     else:
         for arch in ARCH:
             for asset in data['assets']:
-                if asset['name'] == f'step-ca_{new_version}_{arch}.deb':
+                if asset['name'] == f'step-ca_{new_version}_{arch}.rpm':
 
                     returndata.append(
                         (asset['browser_download_url'], asset['name'], arch))

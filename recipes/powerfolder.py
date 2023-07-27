@@ -15,7 +15,7 @@ def check_version(current_version):
     soup = BeautifulSoup(page.content, 'html.parser')
     links=soup.find_all('a')
     for link in links:
-        if link.contents[0]== '.deb (x86_64)':
+        if link.contents[0]== '.rpm (x86_64)':
                 link=link['href']
                 break
         
@@ -32,7 +32,7 @@ def check_version(current_version):
 
 
 def build_package(version, location, data):
-    urllib.request.urlretrieve(data, location+"/"+f'PowerFolder_{version}_amd64.deb')
+    urllib.request.urlretrieve(data, location+"/"+f'PowerFolder_{version}_amd64.rpm')
 
 if __name__=='__main__':
     check_version(None)

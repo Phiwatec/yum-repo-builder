@@ -22,7 +22,7 @@ def check_version(current_version):
     else:
         for arch in ARCH:
             for asset in data['assets']:
-                if asset['name'] == f'ping_exporter_{new_version}_linux_{arch}.deb':
+                if asset['name'] == f'ping_exporter_{new_version}_linux_{arch}.rpm':
 
                     returndata.append(
                         (asset['browser_download_url'], asset['name'], arch))
@@ -36,11 +36,5 @@ def check_version(current_version):
 
 
 def build_package(version, location, data):
-
-    # print(link)
-    #    print(f'Location {location}')
     for arch in data:
-        link = arch[0]
-        bashCommand = f"sh ./recipes/prometheus-ping-exporter/build.sh {link} {version} {location}prometheus-ping-exporter_{version}_linux_{arch[2]}.deb {arch[2]} >/tmp/deblog"
-        os.system(bashCommand)
-        print("Ran Bash Script")
+       urllib.request.urlretrieve(arch[0], location+"/"+arch[1])
